@@ -1,0 +1,40 @@
+body {
+  background: #eee;
+}
+
+* {
+  position: absolute;
+  margin: 0; padding: 0;
+}
+
+input[type="text"] {
+  border: 0;
+  padding: 6px;
+  font-size: 38px;
+  width: 400px;
+  text-transform: uppercase;
+  top: 24px;
+  left: 91px;
+  text-align: center;
+  background-color: transparent;
+}
+
+
+input[type="submit"] {
+  display: block;
+  width: 100px;
+  border: 0;
+  line-height: 35px;
+  height: 35px;
+  color: #fff;
+  background: mediumpurple;
+  font-size: 18px;
+  top: 30px;
+  left: 350px;
+  cursor: pointer;
+}
+
+form {
+  width: 600px;
+  height: 100px;
+}

@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <title>STEP ONE TEST</title>
+    <title>Document</title>
+    <style>
+        button {
+            border: none;
+            width: 220px;
+            height: 75px;
+            margin-bottom: 4px;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background: #d3d7d4;
+            color: #000000;
+        }
+
+        button:hover {
+            background-color: #a1a3a6 !important;
+            /* background-color: #a1a3a6; */
+        }
+    </style>
+    <script type="text/javascript">
+        isMouseHold = false;
+        window.onload = function () {
+            var Button = document.getElementsByClassName("buttonWord");
+            buttonState = []; // 用于保存按钮状态的数组
+
+            // 初始化wordListResult和buttonState
+            for (i = 0; i < Button.length; i++) {
+                buttonState[i] = "0";
+            }
+
+        }
+
+
+        function testButton() {
+            var lastResult = document.getElementById("resultSave");
+            lastResult.value = "1";
+        }
+
+        function setButtonByState(id) {
+            var state = buttonState[id - 1];
+            var idStr = "word-" + id;
+            var button = document.getElementById(idStr);
+            if (state == "0") {
+                //选择后的颜色
+                button.style.backgroundColor = "#74787c";
+            } else if (state == "1") {
+                //取消选择后的颜色(初始化的颜色)
+                button.style.backgroundColor = "#d3d7d4";
+            }
+            buttonState[id - 1] = reverseState(buttonState[id - 1]);
+
+        }
+
+        function reverseState(content) {
+            return content == "0" ? "1" : "0";
+        }
+
+        function mouseDown(button) {
+            isMouseHold = true;
+            setButtonByState(button.value);
+        }
+
+        function mouseRel() {
+            isMouseHold = false;
+        }
+
+        function overButton(button) {
+            if (isMouseHold) {
+                setButtonByState(button.value);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div align="center" onmouseup="mouseRel()" style="height: 100%">
+        <button class="buttonWord" value="1" id="word-1" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">1</button>
+        <button class="buttonWord" value="2" id="word-2" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">2</button>
+        <button class="buttonWord" value="3" id="word-3" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">3</button>
+        <button class="buttonWord" value="4" id="word-4" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">4</button>
+        <br>
+        <button class="buttonWord" value="5" id="word-5" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">5</button>
+        <button class="buttonWord" value="6" id="word-6" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">6</button>
+        <button class="buttonWord" value="7" id="word-7" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">7</button>
+        <button class="buttonWord" value="8" id="word-8" onmouseover="overButton(this)" onmousedown="mouseDown(this)" onmouseup="mouseRel()">8</button>
+        <br>
+    </div>
+
+    <br>
+
+</body>
+
+</html>
